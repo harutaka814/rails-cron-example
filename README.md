@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 動作確認
 
-Things you may want to cover:
+```bash
+docker compose build
+```
 
-* Ruby version
+```bash
+docker compose up
+```
 
-* System dependencies
+別のターミナルを開き、bashでコンテナに入ります。
 
-* Configuration
+```bash
+docker compose exec web bash
+```
 
-* Database creation
+cronジョブが登録されているか確認。
 
-* Database initialization
+```bash
+crontab -l
+```
 
-* How to run the test suite
+cronが正常に動作しているかログで確認。
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+tail -f log/development.log
+```
 
-* Deployment instructions
+毎分こんな感じでログが出れば成功です！
 
-* ...
+```bash
+Cron task executed at: 2024-05-23 15:01:00 +0900
+```
